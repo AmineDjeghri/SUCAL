@@ -1,5 +1,5 @@
 # SUCAL
-Sorbonne Université calendar (inofficial)
+Sorbonne Université calendar (unofficial)
 
 # Features
 - a fast website that loads your calendar in less than second compared to more than 25sec on the official website
