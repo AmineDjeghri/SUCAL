@@ -15,3 +15,4 @@ Sorbonne Université calendar (unofficial)
 ## This website is not made by, affiliated with or endorsed by Sorbonne Université
 - the only official thing here is:  the 'calendar data' extracted from the officiel website
 
+Un grand merci à [Louis](https://github.com/lgvld) pour son aide
