@@ -16,3 +16,5 @@ Sorbonne Université calendar (unofficial)
 - the only official thing here is:  the 'calendar data' extracted from the officiel website
 
 Un grand merci à [Louis](https://github.com/lgvld) pour son aide
+et 
+à ce petit [https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login](tutoriel) 
