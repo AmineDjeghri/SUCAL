@@ -1,37 +1,31 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="column is-4 is-offset-4">
-    <h3 class="title">Sign Up</h3>
-    <div class="box">
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <div class="notification is-danger">
-                {{ messages[0] }}. Go to <a href="{{ url_for('auth.login') }}">login page</a>.
+    <div class="container bg-primary">
+        <form role="form" method="POST" action="/signup">
+        <fieldset>							
+            <p class="text-uppercase pull-center"> SIGN UP.</p>	
+                <div class="form-group">
+                <input type="text" name="name" id="name" class="form-control input-lg" placeholder="Name">
             </div>
-        {% endif %}
-        {% endwith %}
-        <form method="POST" action="/signup">
-            <div class="field">
-                <div class="control">
-                    <input class="input is-large" type="email" name="email" placeholder="Email" autofocus="">
+            <div class="form-group">
+                <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address">
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password">
+            </div>
+            <!--<div class="form-group">
+                <input type="password" name="password2" id="password2" class="form-control input-lg" placeholder="Password2">
+            </div> -->
+                <div>
+                <input type="submit" class="btn btn-md btn-primary"  value="Sign Up">
                 </div>
-            </div>
-
-            <div class="field">
-                <div class="control">
-                    <input class="input is-large" type="text" name="name" placeholder="Name" autofocus="">
-                </div>
-            </div>
-
-            <div class="field">
-                <div class="control">
-                    <input class="input is-large" type="password" name="password" placeholder="Password">
-                </div>
-            </div>
-
-            <button class="button is-block is-info is-large is-fullwidth">Sign Up</button>
-        </form>
+        </fieldset>
+    </form>
+    <div class="mt-2">
+        <span>Already registred ? </span><a  href="{{ url_for('auth.login') }}" >Login </a>
     </div>
-</div>
+    </div>
+    
+
 {% endblock %}

@@ -12,6 +12,11 @@ Sorbonne Université calendar (unofficial)
 
 # Installation
 
+#### configure database
+inside sucal folder, open a python in a terminal 
+>>> from app import db, create_app 
+>>> db.create_all(app=create_app()) 
+
 ## This website is not made by, affiliated with or endorsed by Sorbonne Université
 - the only official thing here is:  the 'calendar data' extracted from the officiel website
 

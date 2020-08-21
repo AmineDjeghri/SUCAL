@@ -1,3 +1,7 @@
+html,body {
+    height: 100%;
+  }
+
 /* .menu  li {
     display: inline-block;
     text-align: center;

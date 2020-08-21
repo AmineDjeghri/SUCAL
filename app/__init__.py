@@ -9,7 +9,7 @@ print('init called')
 def create_app():
     app = Flask(__name__)
 
-    app.config['SECRET_KEY'] = 'secret-key-goes-here'
+    app.config['SECRET_KEY'] = '3\xa7l\n\r^@\xde3\xbe\x8ei\xe1\xadT\x8b'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 
     db.init_app(app)
