@@ -1,14 +1,16 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+import os
+
 
 # init SQLAlchemy so we can use it later in our models
 db = SQLAlchemy()
 
-print('init called')
 def create_app():
     app = Flask(__name__)
-
+    app.config.from_object(os.environ['APP_SETTINGS'])
+    print(os.environ['APP_SETTINGS'])
     app.config['SECRET_KEY'] = '3\xa7l\n\r^@\xde3\xbe\x8ei\xe1\xadT\x8b'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 
@@ -34,9 +36,3 @@ def create_app():
     app.register_blueprint(main_blueprint)
 
     return app
-
-#### Do not use this command to run your application in production
-# from outside the app folder
-# export FLASK_APP=SUCAL
-# export FLASK_APP=SUCAL
-# flask run
