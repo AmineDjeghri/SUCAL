@@ -18,7 +18,7 @@ Sorbonne Université calendar (unofficial)
 Inside the SUCAL folder, open a terminal and enter the following commands:
 - `pip install pipenv`
 - `pipenv shell` create a pipenv environement to 
-- `pipenv install` install all required module
+- `pipenv install` install all required modules
 - create a .env file
 - copy the content of .env.sample in the .env file and modify the url_database and the secret_key 
 
