@@ -11,14 +11,11 @@ db = SQLAlchemy()
 def create_app():
     app = Flask(__name__)
     app.config.from_object(os.environ['APP_SETTINGS'])
-    print(os.environ['APP_SETTINGS'])
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    app.config['SECRET_KEY'] = '3\xa7l\n\r^@\xde3\xbe\x8ei\xe1\xadT\x8b'
-
     db.init_app(app)
 
     migrate = Migrate(app, db)
-    
+
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'
     login_manager.init_app(app)

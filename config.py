@@ -5,10 +5,8 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 class Config(object):
     DEBUG = False
     TESTING = False
-    CSRF_ENABLED = True
-    SECRET_KEY = '3\xa7l\n\r^@\xde3\xbe\x8ei\xe1\xadT\x8b'
     SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
-    
+    SECRET_KEY = os.environ['SECRET_KEY']
 
 class ProductionConfig(Config):
     DEBUG = False

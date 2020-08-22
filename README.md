@@ -11,6 +11,10 @@ Sorbonne Université calendar (unofficial)
 # Want to contribute ?
 
 # Installation
+(brouillon !!!)
+- pipenv shell (create a pipenv environement to install all required module)
+- create a .env file and modify the url_database and the secret_key and don't forget to create the tables in your database
+- for the database 
 
 #### configure database
 inside sucal folder, open a python in a terminal 
