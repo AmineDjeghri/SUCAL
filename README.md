@@ -14,19 +14,22 @@ Sorbonne Université calendar (unofficial)
 
 # Installation
 (brouillon !!!)
-#### pipenv 
-- shell (create a pipenv environement to install all required module)
+#### pipenv or your virtual env
+Inside the SUCAL folder, open a terminal and enter the following commands:
+- `pip install pipenv`
+- `pipenv shell` create a pipenv environement to 
+- `pipenv install` install all required module
 - create a .env file
 - copy the content of .env.sample in the .env file and modify the url_database and the secret_key 
-- create the tables in your database ( give an exemple here for sqlite)
-(i will change this later and add a .env file to make the app use sqlite by default with a defaut secret key)
 
-#### configure database
-- sqlite3: inside sucal folder, open python in a terminal and enter the follwing commands
+#### configure database for the first time:
+- sqlite3: inside sucal folder, open python in a terminal and enter the following commands:
+
 `from app import db, create_app `
+
 `db.create_all(app=create_app()) `
 
--postgresql 12: Create the database with the name sucal and change the url in the .env file to : "postgresql://postgres:PASSWORD@localhost:5432/sucal"
+- postgresql 12: Create the database with the name sucal and change the url in the .env file to : "postgresql://postgres:PASSWORD@localhost:5432/sucal"
 
 Don't forget to replace PASSWORD with your postgres password
 
