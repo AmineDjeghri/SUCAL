@@ -14,14 +14,21 @@ Sorbonne Université calendar (unofficial)
 
 # Installation
 (brouillon !!!)
-- pipenv shell (create a pipenv environement to install all required module)
-- create a .env file and modify the url_database and the secret_key and don't forget to create the tables in your database
-- for the database 
+#### pipenv 
+- shell (create a pipenv environement to install all required module)
+- create a .env file
+- copy the content of .env.sample in the .env file and modify the url_database and the secret_key 
+- create the tables in your database ( give an exemple here for sqlite)
+(i will change this later and add a .env file to make the app use sqlite by default with a defaut secret key)
 
 #### configure database
-inside sucal folder, open a python in a terminal 
->>> from app import db, create_app 
->>> db.create_all(app=create_app()) 
+- sqlite3: inside sucal folder, open python in a terminal and enter the follwing commands
+`from app import db, create_app `
+`db.create_all(app=create_app()) `
+
+-postgresql 12: Create the database with the name sucal and change the url in the .env file to : "postgresql://postgres:PASSWORD@localhost:5432/sucal"
+
+Don't forget to replace PASSWORD with your postgres password
 
 ## This website is not made by, affiliated with or endorsed by Sorbonne Université
 - the only official thing here is:  the 'calendar data' extracted from the officiel website
