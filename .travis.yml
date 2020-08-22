@@ -4,4 +4,4 @@ install:
 
 script: 
 # - pipenv shell
-- pytest
+- pipenv pytest
