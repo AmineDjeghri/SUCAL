@@ -3,5 +3,5 @@ install:
 - pipenv install
 
 script: 
-# - pipenv shell
+- pipenv shell
 - pipenv pytest
