@@ -1,7 +1,6 @@
 install:
 - pip install pipenv
-- pipenv install
+- pipenv sync
 
 script: 
-- pipenv shell
 - pytest
