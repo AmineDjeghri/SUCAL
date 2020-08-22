@@ -1,6 +1,8 @@
 # SUCAL
 Sorbonne Université calendar (unofficial)
 
+[![Build Status](https://travis-ci.com/AmineDjeghri/SUCAL.svg?branch=master)](https://travis-ci.com/AmineDjeghri/SUCAL)
+
 # Features
 - a fast website that loads your calendar in less than second compared to more than 25sec on the official website
 - mobile responsive & better design
