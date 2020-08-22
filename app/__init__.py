@@ -5,15 +5,16 @@ from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 import os
 
-# init SQLAlchemy so we can use it later in our models
+
 db = SQLAlchemy()
+
 
 def create_app():
     app = Flask(__name__)
     app.config.from_object(os.environ['APP_SETTINGS'])
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    db.init_app(app)
 
+    db.init_app(app)
     migrate = Migrate(app, db)
 
     login_manager = LoginManager()
@@ -24,7 +25,6 @@ def create_app():
 
     @login_manager.user_loader
     def load_user(user_id):
-        # since the user_id is just the primary key of our user table, use it in the query for the user
         return User.query.get(int(user_id))
 
     # blueprint for auth routes in our app

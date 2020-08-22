@@ -2,8 +2,8 @@ import pytest
 
 
 @pytest.fixture
-def client():
-    from app import create_app
-    app=create_app()
-    #app.config['TESTING'] = True
-    return True
+def supply_AA_BB_CC():
+	aa=25
+	bb =35
+	cc=45
+	return [aa,bb,cc]

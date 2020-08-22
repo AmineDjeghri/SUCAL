@@ -15,6 +15,7 @@ psycopg2 = "*"
 flask-migrate = "*"
 flask-script = "*"
 pytest = "*"
+pytest-xdist = "*"
 
 [requires]
 python_version = "3.7"
