@@ -43,4 +43,4 @@ Don't forget to replace PASSWORD with your postgres password
 
 #### credits:
 - Louis pour son aide
-- Calendar vector created by freepik
+- Calendar vector created by freepik modified by me

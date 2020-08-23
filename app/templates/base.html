@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sorbonne Université Calendar</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/main.css') }}"/>
 
     <!-- Latest compiled and minified CSS -->
@@ -25,7 +26,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light ">
-        <a class="navbar-brand" href="{{ url_for('main.index') }}">Sorbonne Université Calendar</a>
+        <a class="navbar-brand" href="{{ url_for('main.index') }}"> <img src="static/images/sucal_logo_50_no_shadow.png" height="50" alt="logo"> Sorbonne Université Calendar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
