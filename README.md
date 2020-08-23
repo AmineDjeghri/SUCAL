@@ -3,7 +3,7 @@ Sorbonne Université calendar (unofficial)
 
 [![Build Status](https://travis-ci.com/AmineDjeghri/SUCAL.svg?branch=master)](https://travis-ci.com/AmineDjeghri/SUCAL)
 <p align="center">
-  <img src="images/logo_500.png">
+  <img src="images/sucal_logo_500.png">
 </p>
 
 # Features
