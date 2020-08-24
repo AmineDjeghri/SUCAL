@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}" role="alert"> {{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <h6>your search results: </h6>
+        <!-- <ul>
+            {%  for event in events %}
+                <li><span class="name">{{ event.name }}</span><span class="location">{{ event.location }}</span><span class="begin">{{ event.begin.humanize() }}</span><span class="date">{{ event.begin }}</span></li>
+            {% endfor %}
+        </ul> -->
+    </div>
+
+{% endblock %}
