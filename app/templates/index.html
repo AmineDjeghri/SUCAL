@@ -1,8 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 >
-  Sorbonne université calendar 
-</h1>
+
+<ul>
+  {%  for master in masters %}
+    <li> <a  href="{{ url_for('main.masters_events',masters=master) }}" > 
+      {% if master in ["M1" , "M2"]  %}
+      {{master}} (Evenements Globaux & congés) 
+    {% else %}
+    {{master}} 
+    {% endif %}
+  </a> </li>
+  
+  {% endfor %}
+  </ul>
+
+
 
 {% endblock %}

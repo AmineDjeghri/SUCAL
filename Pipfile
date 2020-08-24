@@ -16,9 +16,10 @@ flask-migrate = "*"
 flask-script = "*"
 pytest = "*"
 pytest-xdist = "*"
-ics = "*"
 requests = "*"
 pyyaml = "*"
+icalendar = "*"
+ics = "*"
 
 [requires]
 python_version = "3.7"

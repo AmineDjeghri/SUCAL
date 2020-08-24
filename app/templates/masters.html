@@ -3,7 +3,6 @@
 {% block content %}
 
 
-    <div class="container">
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
                 {% for category, message in messages %}
@@ -12,12 +11,46 @@
             {% endif %}
         {% endwith %}
         
-        <h6>your search results: </h6>
-        <!-- <ul>
-            {%  for event in events %}
-                <li><span class="name">{{ event.name }}</span><span class="location">{{ event.location }}</span><span class="begin">{{ event.begin.humanize() }}</span><span class="date">{{ event.begin }}</span></li>
-            {% endfor %}
-        </ul> -->
-    </div>
+
+
+        <div class="row">
+            <div class="col">
+                <h6>Autres evenements</h6>
+                <div class="card ">
+                    <div class="card-body">
+                <ul class="list-group">
+                    {%  for event in events_without_time %}
+                    <li class="list-group-item"><span class="name">Nom: {{ event["summary"] }}</span>
+                        <ul>
+                        <li><span class="date"> Début: {{ event["dtstart"] }}</span></li> 
+                        <li><span class="location"> Salle: {{ event["location"] }}</span></li>
+                        <li><span class="date"> Fin: {{ event["dtend"] }}</span></li>
+                    </ul>
+                    </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+            </div>
+                </div>
+            <div class="col-md-8">
+                <div class="card ">
+                        <div class="card-body">
+                            <h6>Master: </h6>
+                            <ul>
+                                {%  for event in events %}
+                                    <li><span class="name">Nom: {{ event["summary"] }}</span>
+                                        <ul>
+                                        <li><span class="date"> Début: {{ event["dtstart"] }}</span></li> 
+                                        <li><span class="location"> Salle: {{ event["location"] }}</span></li>
+                                        <li><span class="date"> Fin: {{ event["dtend"] }}</span></li>
+                                    </ul>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
 
 {% endblock %}

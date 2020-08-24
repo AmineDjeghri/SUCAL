@@ -1,37 +1,3 @@
-from flask import Blueprint, render_template
-from . import db
-from flask_login import login_required, current_user
-
-import os
-import sys
-import time
-import requests
-import yaml
-
-import timeit
-
-main = Blueprint('main', __name__)
-
-
-@main.route('/')
-def index():
-    with open(DIR_DATA + "masters.yml", "r") as yml_file:
-        masters = yaml.safe_load(yml_file)
-        print(masters.keys())
-    return render_template('index.html',masters=masters)
-
-
-@main.route('/profile')
-@login_required
-def profile():
-    return render_template('profile.html', name=current_user.name)
-
-@main.route('/search')
-def search():
-    return render_template('search.html', results="Hi")
-
-
-
 from icalendar import Calendar,Event
 from datetime import datetime, date, timedelta
 import pytz
@@ -52,7 +18,7 @@ def get_coming_events(ics_file):
 
     ######## NEED TO UPDATE THE CODE TO MAKE IT BETTER READABLE
     ######## USE DECODE FUNCTION OF ICALENDAR
-    ######## CODE AGAIN THE DATE PARSING ECT...
+    ########
     ###############################################
     utc=pytz.UTC
     dt_today=datetime.today().date()
@@ -72,15 +38,17 @@ def get_coming_events(ics_file):
                     event['dtstart']=str(component.get('dtstart').dt)
                     event['summary']=str(component.get('summary'))
                     event['location']=str(component.get('location'))
-                    if type(component.get('dtend')) != type(None):
-                        event['dtend']=str(component.get('dtend').dt)
-                    events.append(event)                 
-                elif type(component_dt) is date and component_dt > dt_today:
-                    if type(component.get('dtend')) != type(None):
-                        event['dtend']=str(component.get('dtend').dt)
+                    if type(component.get('DTEND')) != type(None):
+                        event['DTEND']=str(component.get('DTEND').dt)
+                    events.append(event)    
+                    print(event)                
+                elif type(component_dt) is date and component_dt > dt_today-timedelta(days=800):
+                    if type(component.get('DTEND')) != type(None):
+                        event['DTEND']=str(component.get('DTEND').dt)
                     event['dtstart']=str(component.get('dtstart').dt)
                     event['summary']=str(component.get('summary'))
                     event['location']=str(component.get('location'))
+                    print(event)
                     events_without_time.append(event)
 
 
@@ -106,19 +74,3 @@ def update_ics_file(master, if_older_than):
         if not os.path.isfile(ics_file) or os.path.getmtime(ics_file) + if_older_than < time.time():
             with open(ics_file, "w+", encoding='utf8') as ics_file_:
                 ics_file_.write(requests.get(CALDAV_URL + MASTERS[master] + "/" + master, auth=(CALDAV_USERNAME, CALDAV_PASSWORD)).text)
-
-
-
-@main.route('/masters/<masters>')
-def masters_events(masters):
-    events = []
-    events_without_time=[]
-    print(masters)
-    for master in list(set(masters.split("+"))):
-        update_ics_file(master, 3600 * 2)
-        ics_file = DIR_ICS + master + ".ics"
-        events += get_coming_events(ics_file)[0]
-        events.sort(key=lambda e: e["dtstart"])
-        events_without_time += get_coming_events(ics_file)[1]
-        
-    return render_template('masters.html', events=events,events_without_time=events_without_time)
