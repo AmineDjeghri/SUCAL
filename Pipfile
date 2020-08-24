@@ -19,7 +19,6 @@ pytest-xdist = "*"
 ics = "*"
 requests = "*"
 pyyaml = "*"
-vobject = "*"
 
 [requires]
 python_version = "3.7"
