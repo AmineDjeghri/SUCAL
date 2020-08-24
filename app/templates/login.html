@@ -2,43 +2,43 @@
 
 {% block content %}
 
-
     <div class="container">
-{% with messages = get_flashed_messages(with_categories=true) %}
-                {% if messages %}
-                  {% for category, message in messages %}
-                     <div class="alert alert-{{ category }}" role="alert"> {{ message }}</div>
-                  {% endfor %}
-                {% endif %}
-                {% endwith %}
-                <form role="form" method="POST" action="/login">
-                    <fieldset>							
-                        <p class="text-uppercase"> Login using your account: </p>	
-                             
-                        <div class="form-group">
-                            <input type="email" name="email" id="email" class="form-control " placeholder="Email">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" name="password" id="password" class="form-control " placeholder="Password">
-                        </div>
-                        <div class="form-group">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember"> Remember Me
-                                    </label>
-                                </div>
-                        </div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}" role="alert"> {{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
 
-                        <div>
-                            <input type="submit" class="btn btn-md btn-primary" value="Sign In">
+        <form role="form" method="POST" action="/login">
+            <fieldset>							
+                <p class="text-uppercase"> Login using your account: </p>	
+                        
+                <div class="form-group">
+                    <input type="email" name="email" id="email" class="form-control " placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" id="password" class="form-control " placeholder="Password">
+                </div>
+                <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="remember"> Remember Me
+                            </label>
                         </div>
-                             
-                     </fieldset>
-            </form>	
+                </div>
+
+                <div>
+                    <input type="submit" class="btn btn-md btn-primary" value="Sign In">
+                </div>
+                        
+            </fieldset>
+        </form>	
 
             <div class="mt-2">
                 <a  href="{{ url_for('auth.signup') }}" >Create account </a>
             </div>
-        </div>
+    </div>
 
 {% endblock %}
