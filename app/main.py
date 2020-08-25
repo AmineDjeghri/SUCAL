@@ -120,5 +120,6 @@ def masters_events(masters):
         events += get_coming_events(ics_file)[0]
         events.sort(key=lambda e: e["dtstart"])
         events_without_time += get_coming_events(ics_file)[1]
+        events_without_time.sort(key=lambda e: e["dtstart"])
         
     return render_template('masters.html', events=events,events_without_time=events_without_time)
