@@ -4,14 +4,14 @@
 
 <ul>
   {%  for master in masters %}
-    <li> <a  href="{{ url_for('main.masters_events',masters=master) }}" > 
+    <li> <a  href="{{ url_for('main.show_calendar',masters=master) }}" > 
       {% if master in ["M1" , "M2"]  %}
-      {{master}} (Evenements Globaux & congés) 
-    {% else %}
-    {{master}} 
-    {% endif %}
-  </a> </li>
-  
+        {{master}} (Evenements généraux ) 
+      {% else %}
+        {{master}} 
+      {% endif %}
+        </a>
+     </li>
   {% endfor %}
   </ul>
 
