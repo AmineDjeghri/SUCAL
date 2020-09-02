@@ -46,25 +46,23 @@ def test_create_calendar3():
     print(month_events)
 
 
-# def test_create_calendar2():
+def test_create_calendar2():
 
-#     data_calendar = factory.create_data_calendar(["M1","M1_ANDROIDE"])
+    data_calendar = factory.create_data_calendar(["M1","M1_ANDROIDE"])
     
-#     events = data_calendar.events
-#     events_without_time = data_calendar.events_without_time
+    events = data_calendar.events
 
-#     # print(data_calendar.events)
-#     # print(data_calendar.events_without_time)
 
-#     assert len(events) != 0
-#     assert len(events_without_time) != 0
+    # print(data_calendar.events)
 
-#     month_events, month_events_without_time = data_calendar.get_month_data(2020, 9)
-#     print(month_events)
-#     print(month_events_without_time)
+
+    assert len(events) != 0
+
+    month_events = data_calendar.get_month_data(2020, 9)
+    print(month_events)
     
-# def test_create_empty_calendar():
-#     data_calendar = factory.create_data_calendar(masters=[])
-#     # print(data_calendar)
+def test_create_empty_calendar():
+    data_calendar = factory.create_data_calendar(masters=[])
+    # print(data_calendar)
 
-#     print(data_calendar.get_month_data(2020,8))
+    print(data_calendar.get_month_data(2020,8))
