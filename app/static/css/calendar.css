@@ -70,37 +70,6 @@ li {
     font-size: 12px;
 }
 
-.toggle-past-events {
-    float: right;
-}
-
-.remove-task {
-    color: #F7F7F7;
-    background-color: #FF6B6B;
-    margin-right: 2px;
-    float: right;
-}
-
-.hide-recurrent-task {
-    color: #F7F7F7;
-    background-color: #556270;
-    margin-right: 2px;
-    float: right;
-}
-
-.recurrent-task {
-    color: #F7F7F7;
-    background-color: #4ECDC4;
-    margin-right: 2px;
-    float: right;
-}
-
-.edit-task {
-    color: #F7F7F7;
-    background-color: #79BD9A;
-    margin-right: 2px;
-    float: right;
-}
 
 .calendar-header {
   padding: 0;
@@ -201,7 +170,7 @@ ul.tasks {
 }
 
 ul.tasks li {
-    background-color: #444;
+    background-color: #1D2769;
     color: #FEFEFE;
     margin-bottom: 1px;
     padding: 1px 4px 2px 2px;
@@ -214,17 +183,6 @@ ul.tasks li a {
 
 }
 
-.accordion-hidden {
-    height: 0;
-    overflow: hidden;
-    margin: 0;
-}
-
-.accordion-visible {
-    border-top: 1px dashed #CCC;
-    margin: 0;
-    padding: 0 0 2px 0;
-}
 
 .hidden {
     height: 0;
@@ -238,29 +196,6 @@ ul.tasks li a {
     margin-top: 6px;
 }
 
-#statusbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 26px;
-    z-index: 4000000;
-    visibility: hidden;
-    font-weight: 700;
-    text-align: center;
-}
-
-.processing {
-    visibility: visible !important;
-    color: #F7F7F7;
-    background-color: #A1D360;
-}
-
-.error {
-    visibility: visible !important;
-    color: #F7F7F7;
-    background-color: #EB5A46;
-}
 
 @media screen and (max-width:650px) {
 
@@ -290,3 +225,14 @@ ul.tasks li a {
         min-height: 8px;
     }
 }
+
+/* crollable overflow horizontal events_without_time*/
+.testimonial-group > .row {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .testimonial-group > .row > .col-sm-4 {
+    display: inline-block;
+    float: none;
+  }
+  

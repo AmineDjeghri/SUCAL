@@ -9,8 +9,7 @@ Sorbonne Université calendar (unofficial)
 # Features
 - a fast website that loads your calendar in less than second compared to more than 25sec on the official website
 - mobile responsive & better design
-- account authentification to save your calendar 
-- receive a notification to tell you 10min before a course where it is
+- calendar updated every 30min
 
 
 # Want to contribute ?
@@ -32,14 +31,20 @@ Inside the SUCAL folder, open a terminal and enter the following commands:
 
 `db.create_all(app=create_app()) `
 
-- postgresql 12: Create the database with the name sucal and change the url in the .env file to : "postgresql://postgres:PASSWORD@localhost:5432/sucal"
+- postgresql 12: Create the database with the name sucal and change the url in the .env file to : "postgresql://postgres:PASSWORD@localhost:5432/sucal" & Don't forget to replace PASSWORD with your postgres password
 
-Don't forget to replace PASSWORD with your postgres password
+#### TO DO:
+- account authentification to save your calendar 
+- receive a notification to tell you 10min before a course where it is
+- utc timzone parsing (see if it is 100% correct)
+- handle error pages like 404 when a user try to enter a master URL that does not exist
 
 ## This website is not made by, affiliated with or endorsed by Sorbonne Université
 - the only official thing here is:  the 'calendar data' extracted from the officiel website
 
-
+## Hosting:
+- Heroku
+- cron-jobs.com for schedual pinging and 30min updates
 
 #### credits:
 - Louis pour son aide

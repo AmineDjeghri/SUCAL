@@ -2,14 +2,17 @@ import calendar
 from datetime import date, datetime, timedelta
 from typing import Iterable, List, Tuple
 
+
 class GregorianCalendar:
-
     MONTH_NAMES = [calendar.month_name[i] for i in range(1,13)]
-
 
     @staticmethod
     def setfirstweekday(weekday: int) -> None:
         calendar.setfirstweekday(weekday)
+    
+    @staticmethod
+    def firstweekday():
+        return calendar.firstweekday()
 
     @staticmethod
     def previous_month_and_year(year: int, month: int) -> Tuple[int, int]:
@@ -35,11 +38,4 @@ class GregorianCalendar:
     def month_days_with_weekday(year: int, month: int) -> List[List[int]]:
         return calendar.Calendar(calendar.firstweekday()).monthdayscalendar(year, month)
 
-
-if __name__ == "__main__":
-    print(GregorianCalendar.MONTH_NAMES)
-    current_date=GregorianCalendar.current_date()
-    print(current_date)
-    # for date in GregorianCalendar.month_days(2020,6):
-    #     print(date)
-    print(calendar.firstweekday())
+        
