@@ -12,4 +12,5 @@ MIN_YEAR = 2019
 MAX_YEAR = 2100
 ENCODING = "utf-8"
 TIMEZONE = "Europe/Paris"
+LOCALE="fr_FR.UTF-8"
 FIRST_WEEKDAY=0 # Monday

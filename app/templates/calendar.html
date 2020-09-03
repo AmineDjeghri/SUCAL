@@ -13,9 +13,10 @@
         <div class="d-inline-block mb-1">
             <input type="button" class="btn btn-outline-primary btn-sm bg-white" value="&lt;" onclick="window.location='{{ previous_month_link }}'"
                 title="Previous month" />
+            <span class="align-middle text-primary  bg-white ">{{ month_name }} {{ year }}</span>
             <input type="button" class="btn btn-outline-primary btn-sm bg-white" value="&gt;" onclick="window.location='{{ next_month_link }}'"
                 title="Next month" />
-            <span>{{ month_name }} {{ year }}</span>
+
             {% if month != current_month or year != current_year %}
             <input type="button" class="btn btn-primary btn-sm" onclick="window.location = window.location.pathname" value="back to current" />
             {% endif %}
