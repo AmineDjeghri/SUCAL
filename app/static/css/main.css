@@ -27,7 +27,7 @@ Assign Variables */
     --primary-color: hsl(150, 50%, 50%);
     --secondary-color: hsl(280, 50%, 50%);
     --calendar-header-bg:linear-gradient(70deg, var(--primary-color), var(--secondary-color));
-    --padding-event: 5px;
+    --padding-event: 2px;
     --event-space: 2px;
     --border-radius: 3px;    
 }
@@ -51,7 +51,7 @@ Assign Variables */
     --normal-bg:#007bff;
     --special-bg: #6200ee;
 
-    --padding-event: 5px;
+    --padding-event: 2px;
     --event-space: 2px;
     --border-radius: 3px;
 }
