@@ -9,7 +9,7 @@
 {% block content %}
 <div class="calendar-page">
 
-    <div class="container-md  pt-2">
+    <div class="container calendar pt-2">
         <div class="d-inline-block mb-1">
             <input type="button" class="btn btn-outline-primary btn-sm bg-white" value="&lt;" onclick="window.location='{{ previous_month_link }}'"
                 title="Previous month" />
@@ -77,7 +77,7 @@
 
                                     <span style="background-color: antiquewhite; color: black;">
                                         {% if task.location == 'None' %}
-                                        Non attribué
+                                        Salle non attribuée
                                         {% else %}
                                         {{task.location}}
                                         {% endif %}

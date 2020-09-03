@@ -7,6 +7,7 @@ class Config(object):
     TESTING = False
     SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
     SECRET_KEY = os.environ['SECRET_KEY']
+    SEND_FILE_MAX_AGE_DEFAULT=0
 
 class ProductionConfig(Config):
     DEBUG = False

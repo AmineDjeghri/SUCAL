@@ -11,6 +11,10 @@ Assign Variables */
 --secondary-color: hsl(280, 50%, 50%);
 }
 
+.calendar{
+    min-width: 500px !important;
+}
+
 .calendar-page {
     font-family: Roboto, Helvetica, Arial, sans-serif;
     font-size: 1em/1.4;
@@ -55,7 +59,7 @@ Assign Variables */
 }
 
 .day {
-  background-color: #F9F9F9;
+  background-color: white;
   padding: 3px;
   margin: 0;
   min-height: 120px;
@@ -111,8 +115,8 @@ ul.tasks {
     border-radius: 3px;
 }
 .special-event{
-    color: #FEFEFE;
-    background-color:firebrick;
+    color: #222;
+ background: rgba(37, 185, 7, 0.308);
     border-radius: 3px;
     padding: 1px ;
 }
