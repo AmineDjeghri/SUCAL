@@ -53,6 +53,10 @@ def create_data_calendar(masters):
                         if type(component.get('dtend')) != type(None):
                             event.end = component.get('dtend').dt
                         event.start = component.get('dtstart').dt
+                        print(event.start)
+                        event.start= datetime.datetime.combine(event.start,datetime.datetime.min.time())
+                        event.start=utc.localize(event.start)
+                        print(event.start)
                         event.title = str(component.get('summary'))
                         event.location = str(component.get('location'))
                         event.type="Special" # events without time like holidays

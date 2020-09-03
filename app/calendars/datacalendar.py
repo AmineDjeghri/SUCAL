@@ -40,6 +40,11 @@ class DataCalendar:
                 if event.start.year == day.year and event.start.month == day.month and event.start.day == day.day:
                     month_events=check_month_dict(month_events, day)
                     month_events[str(day.month)][str(day.day)].append(event)
+                    month_events[str(day.month)][str(day.day)]
+        
+        for key in month_events.keys():
+            for key2 in month_events[key].keys():
+                month_events[key][key2]=sorted(month_events[key][key2], key=lambda x: x.start)
 
         return month_events
 
