@@ -9,7 +9,7 @@
 {% block content %}
 <div class="calendar-page">
 
-    <div class="container calendar pt-2">
+    <div class="container-md pt-2">
         <div class="d-inline-block mb-1">
             <input type="button" class="btn btn-outline-primary btn-sm bg-white" value="&lt;" onclick="window.location='{{ previous_month_link }}'"
                 title="Previous month" />
@@ -70,8 +70,8 @@
 
                                     {% if task.type == 'Special' %}
                                     <div>
-                                        from {{task.start.day}}/{{task.start.month}}
-                                        to {{task.end.day}}/{{task.end.month}}
+                                        du {{task.start.day}}/{{task.start.month}}
+                                        au {{task.end.day}}/{{task.end.month}}
                                     </div>
                                     {% endif %}
 

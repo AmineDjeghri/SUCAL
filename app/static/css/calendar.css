@@ -111,8 +111,8 @@ ul.tasks {
     border-radius: 3px;
 }
 .special-event{
-    color: #222;
- background: rgba(37, 185, 7, 0.308);
+    color: rgb(255, 255, 255);
+ background: rgba(143, 32, 12, 0.747);
     border-radius: 3px;
     padding: 1px ;
 }
@@ -122,14 +122,14 @@ ul.tasks {
     border-radius: 3px;
 }
 
-@media screen and (max-width:500px) {
-    body{
-        min-width: 500px !important;
-        padding-right: 0px !important;
-        padding-left: 0px !important;
-    }
+@media screen and (max-width:675px) {
     .day {
         min-height: 30px;
+        overflow: hidden;
+    }
+    .container{
+        padding-right: 0;
+        padding-left: 0;
     }
 }
 
