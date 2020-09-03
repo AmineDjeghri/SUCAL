@@ -36,10 +36,10 @@
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto">
-                <form class="form-inline my-2 my-lg-0">
+                <!-- <form class="form-inline my-2 my-lg-0">
                   <input class="form-control mr-sm-2" type="search" placeholder="Find a course" aria-label="Search">
                   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+                </form> -->
               </ul>
             {% if current_user.is_authenticated %}    
             <ul class="navbar-nav ">
@@ -70,7 +70,7 @@
             {% endif %}
         </div>
       </nav>
-        <div class="container h-100">
+        <div>
             {% block content %}
             {% endblock %}
         </div>

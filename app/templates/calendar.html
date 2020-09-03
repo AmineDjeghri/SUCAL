@@ -1,4 +1,3 @@
-
 {% extends "base.html" %}
 
 {% block head %}
@@ -8,95 +7,90 @@
 {% endblock %}
 
 {% block content %}
+<div class="calendar-page">
 
-<div class="cal-nav">
-    <input type="button" class="btn btn-outline-primary btn-sm" value="&lt;" onclick="window.location='{{ previous_month_link }}'"
-        title="Previous month" />
-    <input type="button" class="btn btn-outline-primary btn-sm" value="&gt;" onclick="window.location='{{ next_month_link }}'"
-        title="Next month" />
-    <span>{{ month_name }} {{ year }}</span>
-    {% if month != current_month or year != current_year %}
-        <div class="back-to-current">
+    <div class="container-md  pt-2">
+        <div class="d-inline-block mb-1">
+            <input type="button" class="btn btn-outline-primary btn-sm bg-white" value="&lt;" onclick="window.location='{{ previous_month_link }}'"
+                title="Previous month" />
+            <input type="button" class="btn btn-outline-primary btn-sm bg-white" value="&gt;" onclick="window.location='{{ next_month_link }}'"
+                title="Next month" />
+            <span>{{ month_name }} {{ year }}</span>
+            {% if month != current_month or year != current_year %}
             <input type="button" class="btn btn-primary btn-sm" onclick="window.location = window.location.pathname" value="back to current" />
+            {% endif %}
         </div>
-    {% endif %}
+
+        <ul class="calendar-header">
+            {% for weekday_header in weekdays_headers %}
+                <li>{{ weekday_header }}</li>
+            {% endfor %}
+        </ul>
+
+        <ul class="calendar-body">
+            {% for day in month_days %}
+                <li
+                    {% if day.month != month %}
+                        class="day othermonth"
+                    {% else %}
+                        class="day"
+                    {% endif %}>
+
+                    {% if day.day == current_day and day.month == current_month and day.year == current_year %}
+                            <span class=" daynumber-current" >
+                    {% else %}
+                            <span class="daynumber">
+                    {% endif %}
+                    {{ day.day }}</span>
+                    <ul class="text-center tasks">
+                        {% if day.month|string in tasks and day.day|string in tasks[day.month|string] %}
+                            {% for task in tasks[day.month|string][day.day|string]%}
+                                <li
+                                    {% if day.month != month %}
+                                        class="greyed-event"
+                                    {% elif task.type == 'Normal' %}
+                                        class="normal-event"
+                                    {% else %}
+                                        class="special-event"    
+                                    {% endif %}>
+                                    {{task.title}}
+                                    {% if task.type == 'Normal' %}
+                                    <div>
+                                        {{task.start.hour}}h
+                                        {% if task.start.minute!=0%}
+                                            :{{task.start.minute}}   
+                                        {% endif %}
+                                        -
+                                        {{task.end.hour}}h
+                                        {% if task.end.minute!=0%}
+                                        :{{task.end.minute}}  
+                                        {% endif %}
+                                    </div>
+                                    {% endif %}
+
+                                    {% if task.type == 'Special' %}
+                                    <div>
+                                        from {{task.start.day}}/{{task.start.month}}
+                                        to {{task.end.day}}/{{task.end.month}}
+                                    </div>
+                                    {% endif %}
+
+                                    <span style="background-color: antiquewhite; color: black;">
+                                        {% if task.location == 'None' %}
+                                        Non attribué
+                                        {% else %}
+                                        {{task.location}}
+                                        {% endif %}
+                                    </span>
+                                </li>
+                            {% endfor %}
+                        {% endif %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+
+    </div>
 </div>
-
-
-{% if tasks %}
-<div class="text-muted" > Events:</div>
-<ul class="calendar-header">
-    {% for weekday_header in weekdays_headers %}
-        <li class="weekday-header">{{ weekday_header }}</li>
-    {% endfor %}
-</ul>
-
-<ul class="calendar" id="calendar">
-    {% for day in month_days %}
-        <li
-            {% if day.month != month %}
-                class="day othermonth"
-            {% else %}
-                class="day"
-            {% endif %}
-            data-year="{{ day.year }}"
-            data-month="{{ day.month }}"
-            data-day="{{ day.day }}">
-
-            {% if day.day == current_day and day.month == current_month and day.year == current_year %}
-                    <span class=" daynumber-current" >
-            {% else %}
-                    <span class="daynumber">
-            {% endif %}
-            {{ day.day }}</span>
-            <ul class="text-center tasks">
-                {% if day.month|string in tasks and day.day|string in tasks[day.month|string] %}
-                    {% for task in tasks[day.month|string][day.day|string]%}
-                        <li
-                            {% if day.month != month %}
-                                class="task greyed"
-                            {% elif task.type == 'Normal' %}
-                                class="task"
-                            {% else %}
-                                class="task" style="background-color:firebrick;"    
-                            {% endif %}>
-                            {{task.title}}
-                            {% if task.type == 'Normal' %}
-                            <div>
-                                {{task.start.hour}}h
-                                {% if task.start.minute!=0%}
-                                    :{{task.start.minute}}   
-                                {% endif %}
-                                -
-                                {{task.end.hour}}h
-                                {% if task.end.minute!=0%}
-                                :{{task.end.minute}}  
-                                {% endif %}
-                            </div>
-                            {% endif %}
-
-                            {% if task.type == 'Special' %}
-                            <div>
-                                from {{task.start.day}}/{{task.start.month}}
-                                to {{task.end.day}}/{{task.end.month}}
-                            </div>
-                            {% endif %}
-
-                            <span style="background-color: antiquewhite; color: black;">
-                                {{task.location}}
-                            </span>
-                        </li>
-                    {% endfor %}
-                {% endif %}
-            </ul>
-        </li>
-    {% endfor %}
-</ul>
-{% endif %}
-<script type="text/javascript">
-
-</script>
-
-
 {% endblock %}
 

@@ -1,75 +1,26 @@
-body {
+/* ================
+Assign Variables */
+:root {
+--bg-color: hsl(127, 20%, 82%);
+--calendar-bg-color: hsl(130, 20%, 100%);
+--shade-color: hsla(150, 50%, 20%, 0.1);
+--text-color: hsl(280, 30%, 20%);
+--headline-color: hsl(0, 0%, 100%);
+--rule-color: hsla(0, 0%, 50%, 0);
+--primary-color: hsl(150, 50%, 50%);
+--secondary-color: hsl(280, 50%, 50%);
+}
+
+.calendar-page {
     font-family: Roboto, Helvetica, Arial, sans-serif;
     font-size: 1em/1.4;
     color: #222;
-    background-color: #FCFCFC;
+    background: var(--bg-color);
 }
 
-li {
+.calendar-page li {
     list-style: none;
 }
-
-.header {
-    display: inline;
-}
-
-.header .current-date {
-    color: #444;
-    display: inline;
-    font-weight: 700;
-    font-size: 1.5em;
-    padding-left: 6px;
-    padding-right: 6px;
-    min-width: 25%;
-}
-
-.header .back-to-current {
-    display: inline;
-    color: #444;
-    font-size: 1.25em;
-    font-weight: 700;
-}
-
-.header .back-to-current a {
-    color: #444;
-    text-decoration: underline;
-}
-
-.header a {
-    text-decoration: none;
-}
-
-.header-button {
-    padding: 1px;
-    font-size: 14px;
-    font-weight: 700;
-}
-
-.button {
-    font-size: 1.3em;
-    font-weight: 700;
-    padding: 3px 6px 3px 6px;
-    margin-left: 1px;
-    margin-right: 1px;
-    border-radius: 2px;
-    text-decoration: none;
-}
-
-.form-button {
-    padding: 1px;
-    margin-top: 9px;
-    margin-right: 3px;
-}
-
-.color-picker {
-    padding: 0;
-}
-
-.smaller {
-    padding: 0px 3px 2px 3px;
-    font-size: 12px;
-}
-
 
 .calendar-header {
   padding: 0;
@@ -80,27 +31,18 @@ li {
   -webkit-flex-flow: row wrap;
   justify-content: space-around;
   min-width: 400px;
-  border-left: #DADCE0 1px solid;
+  border-radius: 25px 25px 0px 0px;
+  background: linear-gradient(70deg, var(--primary-color), var(--secondary-color));
+  color: var(--headline-color);
 }
 
-.weekday-header {
-  background-color: #F6F6F6;
-  color: #666;
+.calendar-header li {
   padding: 3px;
-  margin: 0;
-  list-style:none;
-  flex-grow: 1;
-  flex-basis: 12%;
-  overflow: auto;
-  box-sizing: border-box;
-  text-align: center;
-  font-size: 12px;
-  border-top: #DADCE0 1px solid;
-  border-right: #DADCE0 1px solid;
-  border-bottom: 0px;
+  text-align: center;   
+  font-size: 15px; 
 }
 
-.calendar {
+.calendar-body {
   padding: 0;
   margin: 0;
   display: flex;
@@ -128,36 +70,28 @@ li {
   border-bottom: 0px;
 }
 
-.task.greyed {
-    background-color:#B8B8B8 !important;
-}
-
 .othermonth {
-  background-color: #F3F3F3;
-  cursor: auto;
-}
+    background-color: #dddddd;
+    cursor: auto;
+  }
 
-span.time {
-    font-size: 9px;
-}
-
-span.daynumber {
+.daynumber {
     font-size: 13.5px;
-    font-weight: 400;
-    color: #666;
+    color: rgb(48, 47, 47);
     padding: 3px;
+    font-weight: bold;
 }
 
-span.daynumber-current {
+.daynumber-current {
     font-size: 13.5px;
-    font-weight: 700;
     color: #F7F7F7;
-    background-color: #3EB34F;
-    padding: 4px;
+    background-color: #30e24b;
+    padding: 3px;
+    font-weight: bold;
     border-radius: 12px;
 }
 
-.othermonth span.daynumber {
+.othermonth .daynumber {
     color: #777774;
 }
 
@@ -169,33 +103,24 @@ ul.tasks {
     padding: 0;
 }
 
-ul.tasks li {
+.normal-event{
     background-color: #1D2769;
     color: #FEFEFE;
     margin-bottom: 1px;
-    padding: 1px 4px 2px 2px;
-    cursor: pointer;
-    border-radius: 2px;
+    padding: 1px ;
+    border-radius: 3px;
 }
-
-ul.tasks li a {
-    color: #F0F0F0;
-
+.special-event{
+    color: #FEFEFE;
+    background-color:firebrick;
+    border-radius: 3px;
+    padding: 1px ;
 }
-
-
-.hidden {
-    height: 0;
-    overflow: hidden;
-    margin: 0;
-    visibility: hidden;
+.greyed-event {
+    color: #FEFEFE;
+    background-color:#d6d6d6 !important;
+    border-radius: 3px;
 }
-
-.task-details-form label {
-    font-weight: 700;
-    margin-top: 6px;
-}
-
 
 @media screen and (max-width:650px) {
 
@@ -226,13 +151,4 @@ ul.tasks li a {
     }
 }
 
-/* crollable overflow horizontal events_without_time*/
-.testimonial-group > .row {
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-  .testimonial-group > .row > .col-sm-4 {
-    display: inline-block;
-    float: none;
-  }
   
