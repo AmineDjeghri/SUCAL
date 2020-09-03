@@ -2,3 +2,285 @@ html,body {
     height: 100%;
 }
 
+/* ================
+Assign Variables */
+:root {
+    --bg-color:white;
+
+    --navbar-color: #272727;
+    --navbar-brand-text-color:white;
+
+    --calendar-page-bg-color: hsl(127, 20%, 82%);
+    --calendar-bg-color: hsl(130, 20%, 100%);
+    --shade-color: hsla(150, 50%, 20%, 0.1);
+    --text-color: hsl(280, 30%, 20%);
+    --text-sub-color: hsl(0, 0%, 100%);
+
+    --day-bg:white;
+    --day-border-color:#DADCE0;
+    --othermonth-bg:#f1f0f0;
+    --current: #30e24b;
+    --normal-bg:#1D2769;
+    --special-bg: rgba(143, 32, 12, 0.747);;
+
+    --rule-color: hsla(0, 0%, 50%, 0);
+    --primary-color: hsl(150, 50%, 50%);
+    --secondary-color: hsl(280, 50%, 50%);
+    --calendar-header-bg:linear-gradient(70deg, var(--primary-color), var(--secondary-color));
+    --padding-event: 5px;
+    --event-space: 4px;
+    --border-radius: 3px;    
+}
+
+[data-theme="dark"] {
+    --bg-color: #191919;
+    --navbar-color: #272727;
+    --navbar-brand-text-color:white;
+
+    --calendar-page-bg-color: #191919;
+
+    --text-color: whitesmoke;
+
+    --calendar-header-bg: #2b2b2b;
+    --day-bg: #313131;
+    --day-border-color:#272727;
+    --othermonth-bg:#2b2b2b;
+
+    --current: #007bff;
+    --text-sub-color: #777774;
+    --normal-bg:#007bff;
+    --special-bg: #6200ee;
+
+    --padding-event: 5px;
+    --event-space: 4px;
+    --border-radius: 3px;
+}
+body{
+    background-color: var(--bg-color);
+}
+
+.content {
+    background-color: var(--bg-color);
+}
+
+.navbar {
+    background-color: var(--navbar-color) !important;
+}
+
+.navbar .navbar-brand {
+   color: var(--navbar-brand-text-color) !important;
+}
+
+.calendar-page {
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1em/1.4;
+    color: #222;
+    background: var(--calendar-page-bg-color);
+}
+.calendar-page div div span {
+    margin: 0px 10px;
+    font-size: 1.5em;
+    color: var(--text-color) !important;
+    background: transparent !important;
+}
+
+.calendar-page div div input {
+    color: var(--text-color) !important;
+    border-color: var(--text-sub-color) !important;
+    background-color: transparent !important;
+}
+.calendar-page li {
+    list-style: none;
+}
+
+.calendar-header {
+  padding: 0;
+  margin-top: 5px;
+  margin-bottom: 0;
+  display: flex;
+  flex-flow: row wrap;
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+  min-width: 400px;
+  border-radius: var(--border-radius) var(--border-radius) 0px 0px;
+  background: var(--calendar-header-bg);
+  color: var(--text-sub-color);
+}
+
+.calendar-header li {
+  padding: 3px;
+  text-align: center;   
+  font-size: 15px; 
+}
+
+.calendar-body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-flow: row wrap;
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+  min-width: 400px;
+  border-bottom: var(--day-border-color) 1px solid;
+  border-left: var(--day-border-color) 1px solid;
+}
+
+.day {
+  background-color: var(--day-bg);
+  padding: 3px;
+  margin: 0;
+  min-height: 120px;
+  list-style:none;
+  flex-grow: 1;
+  flex-basis: 20%;
+  overflow: auto;
+  box-sizing: border-box;
+  cursor: pointer;
+  border-top: var(--day-border-color) 1px solid;
+  border-right: var(--day-border-color) 1px solid;
+}
+
+.othermonth {
+    background-color: var(--othermonth-bg);
+    cursor: auto;
+  }
+
+.daynumber {
+    font-size: 13.5px;
+    color: var(--text-color);
+    padding: 3px;
+    font-weight: bold;
+}
+
+.daynumber-current {
+    font-size: 13.5px;
+    color: var(--text-color);
+    background-color: var(--current);
+    padding: 3px;
+    width: 26px;
+    height: 26px;
+    text-align: center;
+    display: inline-block;
+    font-weight: bold;
+    border-radius: 13px;
+}
+
+.othermonth .daynumber {
+    color: var(--text-color);
+}
+
+ul.tasks {
+    font-weight: 400;
+    font-size: 12px;
+    margin: 1px;
+    margin-top: 3px;
+    padding: 0;
+}
+
+.normal-event{
+    background-color: var(--normal-bg);
+    color: whitesmoke;
+    margin-bottom: var(--event-space);
+    padding: var(--padding-event);
+    border-radius: var(--border-radius);
+}
+
+.special-event{
+    color: whitesmoke;
+    background: var(--special-bg);
+    margin-bottom: var(--event-space);
+    border-radius: var(--border-radius);
+    padding: var(--padding-event);
+}
+.greyed-event {
+    color: whitesmoke;
+    padding: var(--padding-event);
+    margin-bottom: var(--event-space);
+    background-color: var(--day-bg) !important;
+    border-radius: var(--border-radius);
+}
+
+.normal-event span, .special-event span, .greyed-event span {
+    padding: 0 3px;
+    border-radius: var(--border-radius);
+    display: inline-block;
+    margin: 8px 5px 5px 5px;
+    color: whitesmoke !important;
+    background-color: rgba(255,255,255,0.2) !important;
+}
+
+
+@media screen and (max-width:675px) {
+    .day {
+        min-height: 30px;
+        overflow: hidden;
+    }
+    .container-md{
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+
+
+/*Simple css to style it like a toggle switch*/
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+ 
+  }
+.theme-switch-wrapper span {
+        margin-left: 10px;
+        font-size: 12px;
+        color: var(--navbar-brand-text-color);
+}  
+  .theme-switch {
+    display: inline-block;
+    height: 15px;
+    position: relative;
+    width: 40px;
+    margin:0;
+  }
+  
+  .theme-switch input {
+    display:none;
+  }
+  
+  .slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    background-color: #fff;
+    bottom: 0px;
+    content: "";
+    height: 15px;
+    left: 0px;
+    position: absolute;
+    transition: .4s;
+    width: 15px;
+  }
+  
+  input:checked + .slider {
+    background-color:var(--normal-bg);
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  
