@@ -16,5 +16,4 @@ if __name__ == "__main__":
     print(l)
     l1=sorted(l)
     print(l1)
-    # l=sorted(l, key=lambda x: x.rank)
 
