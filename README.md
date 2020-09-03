@@ -7,9 +7,9 @@ Sorbonne Université calendar
 </p>
 
 # Features
-- A fast website that loads your calendar in less than second compared to more than 25sec on the official website
-- A better adapted design for mobile
-- Calendar updated every 30min
+- A fast website that loads your calendar in less than a second compared to more than 25sec on the official website
+- A friendly monbile website
+- The Calendar is updated every 30min
 - When you select a special field it will automatically add the events from the general field (ex: you select M1_DAC, the calendar will contain M1_DAC + M1 events)
 
 # Want to contribute ?
