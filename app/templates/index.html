@@ -6,7 +6,7 @@
   {%  for master in masters %}
     <li> <a  href="{{ url_for('main.show_calendar',masters=master) }}" > 
       {% if master in ["M1" , "M2"]  %}
-        {{master}} (Evenements généraux ) 
+        {{master}} (Évènement généraux ) 
       {% else %}
         {{master}} 
       {% endif %}
