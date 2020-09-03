@@ -9,6 +9,7 @@
 # Features
 - A fast website that loads your calendar in less than a second compared to more than 25sec on the official website
 - A friendly mobile website
+- Dark mode
 - The Calendar is updated every 30min
 - When you select a special field it will automatically add the events from the general field (ex: you select M1_DAC, the calendar will contain M1_DAC + M1 events)
 

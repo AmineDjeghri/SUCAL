@@ -28,7 +28,7 @@ Assign Variables */
     --secondary-color: hsl(280, 50%, 50%);
     --calendar-header-bg:linear-gradient(70deg, var(--primary-color), var(--secondary-color));
     --padding-event: 5px;
-    --event-space: 4px;
+    --event-space: 2px;
     --border-radius: 3px;    
 }
 
@@ -52,7 +52,7 @@ Assign Variables */
     --special-bg: #6200ee;
 
     --padding-event: 5px;
-    --event-space: 4px;
+    --event-space: 2px;
     --border-radius: 3px;
 }
 body{
@@ -193,19 +193,27 @@ ul.tasks {
     padding: var(--padding-event);
 }
 .greyed-event {
-    color: whitesmoke;
+    color: rgb(197, 196, 196);
     padding: var(--padding-event);
     margin-bottom: var(--event-space);
     background-color: var(--day-bg) !important;
     border-radius: var(--border-radius);
 }
 
-.normal-event span, .special-event span, .greyed-event span {
+.normal-event span, .special-event span{
     padding: 0 3px;
     border-radius: var(--border-radius);
     display: inline-block;
     margin: 8px 5px 5px 5px;
     color: whitesmoke !important;
+    background-color: rgba(255,255,255,0.2) !important;
+}
+.greyed-event span{
+    padding: 0 3px;
+    border-radius: var(--border-radius);
+    display: inline-block;
+    margin: 8px 5px 5px 5px;
+    color: rgb(197, 196, 196) !important;
     background-color: rgba(255,255,255,0.2) !important;
 }
 

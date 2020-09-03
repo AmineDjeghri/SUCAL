@@ -34,15 +34,14 @@
 
 <body>
     <script>
-                    const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
-            
-            if (currentTheme) {
-                document.documentElement.setAttribute('data-theme', currentTheme);
-            }
+        const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+        }
     </script>
     <nav class="navbar navbar-dark navbar-expand-lg">
         <a class="navbar-brand" href="{{ url_for('main.index') }}"> Sorbonne Université Calendar</a>
-        <a href="https://github.com/AmineDjeghri/SUCAL">(Beta 0.4 github)</a> 
+        <a href="https://github.com/AmineDjeghri/SUCAL">(Beta 0.7 github)</a> 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -54,9 +53,7 @@
           <span>Enable Dark Mode</span>
         </div>
         <script>
-
             const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
-            
             function switchTheme(e) {
                 if (e.target.checked) {
                     document.documentElement.setAttribute('data-theme', 'dark');
@@ -67,14 +64,10 @@
                     localStorage.setItem('theme', 'light'); //add this
                 }    
             }
-            
             toggleSwitch.addEventListener('change', switchTheme, false);
-            
-                if (currentTheme === 'dark') {
-                    toggleSwitch.checked = true;
-                }
-               
-                
+            if (currentTheme === 'dark') {
+                toggleSwitch.checked = true;
+            }     
             </script>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto">
