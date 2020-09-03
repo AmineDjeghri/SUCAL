@@ -123,14 +123,13 @@ ul.tasks {
 }
 
 @media screen and (max-width:500px) {
-    .day {
-        min-height: 30px;
-    }
-
-    .calendar{
+    body{
         min-width: 500px !important;
         padding-right: 0px !important;
         padding-left: 0px !important;
+    }
+    .day {
+        min-height: 30px;
     }
 }
 
