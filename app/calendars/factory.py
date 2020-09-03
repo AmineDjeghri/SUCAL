@@ -44,7 +44,7 @@ def create_data_calendar(masters):
                         event.start = component.get('dtstart').dt
                         event.title = str(component.get('summary'))
                         event.location = str(component.get('location'))
-                        event.type="Normal" # events with date & time like courses
+                        event.type = "Normal" # events with date & time like courses
                         if type(component.get('dtend')) != type(None):
                             event.end = component.get('dtend').dt
                         events.append(event)  
@@ -52,14 +52,15 @@ def create_data_calendar(masters):
                     elif type(component_dt) is datetime.date and component_dt >= min_date:
                         if type(component.get('dtend')) != type(None):
                             event.end = component.get('dtend').dt
+
+                        #for sorting (need to be datetime)
                         event.start = component.get('dtstart').dt
-                        print(event.start)
-                        event.start= datetime.datetime.combine(event.start,datetime.datetime.min.time())
-                        event.start=utc.localize(event.start)
-                        print(event.start)
+                        event.start = datetime.datetime.combine(event.start,datetime.datetime.min.time())
+                        event.start = utc.localize(event.start)
+
                         event.title = str(component.get('summary'))
                         event.location = str(component.get('location'))
-                        event.type="Special" # events without time like holidays
+                        event.type = "Special" # events without time like holidays
                         events.append(event)
 
     data_calendar = DataCalendar(events, constants.FIRST_WEEKDAY)

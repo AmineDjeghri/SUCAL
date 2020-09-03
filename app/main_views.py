@@ -44,8 +44,6 @@ def show_calendar(masters):
         masters.append('M1') 
     if 'M2' not in masters and 'M2' in '\t'.join(masters):
         masters.append('M2')
-    
-    print(masters)
 
     current_day, current_month, current_year = GregorianCalendar.current_date()
     year = int(request.args.get("y", current_year))
@@ -53,7 +51,7 @@ def show_calendar(masters):
     year, month, month_name = utils.preprocess_year_and_month(year,month)
 
     weekdays_headers = [day for day in calendar.day_abbr][:5] # Only weekdays
-    print(weekdays_headers)
+
     month_days = GregorianCalendar.month_weekdays(year, month)
     month_days = list(month_days)
 
