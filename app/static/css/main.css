@@ -76,6 +76,7 @@ body{
     font-size: 1em/1.4;
     color: #222;
     background: var(--calendar-page-bg-color);
+    
 }
 .calendar-page div div span {
     margin: 0px 10px;
@@ -223,9 +224,9 @@ ul.tasks {
         min-height: 30px;
         overflow: hidden;
     }
-    .container-md{
-        padding-right: 0;
-        padding-left: 0;
+    .calendar-page{
+        padding-right: 0 !important;
+        padding-left: 0 !important;
     }
 }
 
