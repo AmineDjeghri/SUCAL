@@ -11,10 +11,6 @@ Assign Variables */
 --secondary-color: hsl(280, 50%, 50%);
 }
 
-.calendar{
-    min-width: 500px !important;
-}
-
 .calendar-page {
     font-family: Roboto, Helvetica, Arial, sans-serif;
     font-size: 1em/1.4;
@@ -126,9 +122,15 @@ ul.tasks {
     border-radius: 3px;
 }
 
-@media screen and (max-width:650px) {
+@media screen and (max-width:500px) {
     .day {
         min-height: 30px;
+    }
+
+    .calendar{
+        min-width: 500px !important;
+        padding-right: 0px !important;
+        padding-left: 0px !important;
     }
 }
 
