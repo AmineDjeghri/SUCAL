@@ -118,36 +118,13 @@ ul.tasks {
 }
 .greyed-event {
     color: #FEFEFE;
-    background-color:#d6d6d6 !important;
+    background-color:#cccccc !important;
     border-radius: 3px;
 }
 
 @media screen and (max-width:650px) {
-
-    .header-button {
-        font-size: 18px;
-        padding: 4px;
-    }
-
-    .header .current-date {
-        font-size: 0.85em;
-        padding-left: 3px;
-        padding-right: 3px;
-    }
-
-    .header .back-to-current {
-        font-size: 0.60em;
-    }
-
     .day {
         min-height: 30px;
-    }
-
-    ul.tasks li a, span.recurrent-task {
-        padding: 3px 4px 3px 4px;
-        min-width: 8px;
-        text-align: center;
-        min-height: 8px;
     }
 }
 
