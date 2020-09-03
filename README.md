@@ -1,5 +1,5 @@
-# SUCAL:Sorbonne Université calendar
-## http://sucal.aminedjeghri.tk/
+# SUCAL : Sorbonne Université calendar
+### Le lien: [sucal.aminedjeghri.tk](http://sucal.aminedjeghri.tk/)
 
 [![Build Status](https://travis-ci.com/AmineDjeghri/SUCAL.svg?branch=master)](https://travis-ci.com/AmineDjeghri/SUCAL)
 <p align="center">
