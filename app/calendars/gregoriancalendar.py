@@ -35,7 +35,10 @@ class GregorianCalendar:
         return calendar.Calendar(calendar.firstweekday()).itermonthdates(year, month)
 
     @staticmethod
-    def month_days_with_weekday(year: int, month: int) -> List[List[int]]:
-        return calendar.Calendar(calendar.firstweekday()).monthdayscalendar(year, month)
+    def month_weekdays(year: int, month: int) -> Iterable[date]:
+        md=GregorianCalendar.month_days(year,month)
+
+        md_without_weekends=[day for day in md if day.weekday()<5]
+        return md_without_weekends
 
         

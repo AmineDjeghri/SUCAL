@@ -55,7 +55,8 @@
                                     {% endif %}>
                                     {{task.title}}
                                     {% if task.type == 'Normal' %}
-                                    <div>
+                                    <div>   
+                                        <div>le {{task.start.day}}/{{task.start.month}}</div> 
                                         {{task.start.hour}}h
                                         {% if task.start.minute!=0%}
                                             :{{task.start.minute}}   

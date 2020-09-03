@@ -61,7 +61,7 @@ Assign Variables */
   min-height: 120px;
   list-style:none;
   flex-grow: 1;
-  flex-basis: 13.5%;
+  flex-basis: 20%;
   overflow: auto;
   box-sizing: border-box;
   cursor: pointer;
@@ -113,11 +113,13 @@ ul.tasks {
 .special-event{
     color: rgb(255, 255, 255);
  background: rgba(143, 32, 12, 0.747);
+ margin-bottom: 1px;
     border-radius: 3px;
     padding: 1px ;
 }
 .greyed-event {
     color: #FEFEFE;
+    margin-bottom: 1px;
     background-color:#cccccc !important;
     border-radius: 3px;
 }

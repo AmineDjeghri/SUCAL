@@ -52,8 +52,9 @@ def show_calendar(masters):
     month = int(request.args.get("m", current_month))
     year, month, month_name = utils.preprocess_year_and_month(year,month)
 
-    weekdays_headers = [day for day in calendar.day_abbr]
-    month_days = GregorianCalendar.month_days(year, month)
+    weekdays_headers = [day for day in calendar.day_abbr][:5] # Only weekdays
+    print(weekdays_headers)
+    month_days = GregorianCalendar.month_weekdays(year, month)
     month_days = list(month_days)
 
     data_calendar = factory.create_data_calendar(masters)
