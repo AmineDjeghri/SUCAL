@@ -9,8 +9,8 @@
 # Sceenshots
 Dark Mode          |  Light Mode
 :-------------------------:|:-------------------------:
-<img src="images/sucal2.PNG">  |  <img src="images/sucal4.PNG">
-<img src="images/sucal1.PNG">  |  <img src="images/sucal3.PNG">
+<img src="images/sucal2.png">  |  <img src="images/sucal4.png">
+<img src="images/sucal1.png">  |  <img src="images/sucal3.png">
 
 # Features
 - A fast website that loads your calendar in less than a second compared to more than 25sec on the official website
