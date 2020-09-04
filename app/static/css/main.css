@@ -61,6 +61,7 @@ body{
 
 .content {
     background-color: var(--bg-color);
+    height: 100%;
 }
 
 .navbar {
@@ -71,13 +72,17 @@ body{
    color: var(--navbar-brand-text-color) !important;
 }
 
-.calendar-page {
+.calendar-page{
     font-family: Roboto, Helvetica, Arial, sans-serif;
     font-size: 1em/1.4;
-    color: #222;
+    color: var(--text-color);
     background: var(--calendar-page-bg-color);
-    
+
 }
+/* .calendar-page .container-md{
+    used in @media
+} */
+
 .calendar-page div div span {
     margin: 0px 10px;
     font-size: 1.5em;
@@ -224,7 +229,7 @@ ul.tasks {
         min-height: 30px;
         overflow: hidden;
     }
-    .calendar-page{
+    .calendar-page .container-md{
         padding-right: 0 !important;
         padding-left: 0 !important;
     }
@@ -236,8 +241,8 @@ ul.tasks {
 .theme-switch-wrapper {
     display: flex;
     align-items: center;
- 
   }
+
 .theme-switch-wrapper span {
         margin-left: 10px;
         font-size: 12px;
