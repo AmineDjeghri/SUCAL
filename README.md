@@ -6,6 +6,12 @@
   <img src="images/sucal_logo_500.png">
 </p>
 
+# Sceenshots
+Dark Mode          |  Light Mode
+:-------------------------:|:-------------------------:
+<img src="images/sucal2.PNG">  |  <img src="images/sucal4.PNG">
+<img src="images/sucal1.PNG">  |  <img src="images/sucal3.PNG">
+
 # Features
 - A fast website that loads your calendar in less than a second compared to more than 25sec on the official website
 - A friendly mobile website
