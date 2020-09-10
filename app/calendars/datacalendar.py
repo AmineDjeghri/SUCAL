@@ -37,7 +37,6 @@ class DataCalendar:
 
         for day in self.gregorian_calendar.month_days(year, month):
             for event in self.events:
-                
                 if event.start.year == day.year and event.start.month == day.month and event.start.day == day.day:
                     month_events=_check_month_dict(month_events, day)
                     month_events[str(day.month)][str(day.day)].append(event)
@@ -49,7 +48,7 @@ class DataCalendar:
 
         return month_events
 
-    def get_sorted_events(self):
+    def get_events(self):
         return sorted(self.events, key=lambda x: x.start)
 
 
