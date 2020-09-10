@@ -22,25 +22,25 @@ Dark Mode          |  Light Mode
 # Want to contribute ?
 
 # Installation
-(spreadsheet !!!)
-#### pipenv or your virtual env
+#### I use pipenv
 Inside the SUCAL folder, open a terminal and enter the following commands:
 - `pip install pipenv`
-- `pipenv shell` create a pipenv environement to 
+- `pipenv shell` create a pipenv environement 
 - `pipenv install` install all required modules
-- Create a .env file
-- Copy the content of .env.sample in the .env file and modify the url_database and the secret_key 
+- Change the name of the **.env.sample** file to **.env**  
 
+#### Running the project
+You need to run these commands everytime you want to run the application:
+- `pipenv shell` to activate your project environement
+- `flask run` tu start the application
+  
 #### configure database for the first time:
-- Postgresql 12: Create the database with the name sucal and change the url in the .env file to : "postgresql://postgres:PASSWORD@localhost:5432/sucal" & Don't forget to replace PASSWORD with your postgres password
+- Install Postgresql 12
+- Create the database with the name sucal
+- In the **.env** file change the *DATABASE_URL* to : **postgresql://postgres:PASSWORD@localhost:5432/sucal** 
+- Don't forget to replace PASSWORD with your postgres password
 
-- Sqlite3: inside sucal folder, open python in a terminal and enter the following commands:
-
-`from app import db, create_app `
-
-`db.create_all(app=create_app()) `
-
-#### TO DO:
+### TO DO:
 - Profile calendars
 - Receive a notification to tell you 10min before a course where it is situated
 - UTC timzone parsing (see if it is 100% correct)
@@ -51,8 +51,8 @@ Inside the SUCAL folder, open a terminal and enter the following commands:
 
 ## Hosting:
 - Heroku
-- Cron-jobs.com for schedual pinging and 30min updates
+- cron-job.org for 30min schedual pinging 
 
 #### credits:
 - Louis for the idea
-- Calendar vector created by freepik modified by me
+- The logo of the app was created by freepik and modified by me
