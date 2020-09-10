@@ -10,24 +10,30 @@ import calendar
 from app import constants
 import traceback
 
+from .utils import *
+
 
 def create_data_calendar(masters):
     """
     Return the comming events of an ics file 
     Parameters:
         masters: list of masters name
-        min_date: minimum date to get events
-        utc: timzeone
+
     Returns:
-        events (list): events that have a date and a time (datetime.datetime)
-        events_without_time(list): events that have only a date (datetime.date)
+        data_calendar (DataCalendar): 
+
     """
+    # TO DO: arrange the code to remove duplicate lines
+    # HORRIBLE CODE
+    # HORRIBLE CODE
+    # HORRIBLE CODE
+    # HORRIBLE CODE
 
     utc = pytz.timezone(constants.TIMEZONE)
-
     min_date = datetime.datetime.strptime(constants.MIN_DATE, "%d-%m-%Y").date()
-    min_date_with_time = datetime.datetime.combine(min_date, datetime.time.min)
-    min_date_with_time = min_date_with_time.replace(tzinfo=utc)
+    min_datetime = datetime.datetime.combine(min_date, datetime.time.min)
+    min_datetime = min_datetime.replace(tzinfo=utc)
+    print("miin ",min_datetime)
 
     events = []
     
@@ -36,33 +42,48 @@ def create_data_calendar(masters):
 
         if cal is not None:
             for component in cal.walk():
-
                 event = CalendarEvent()
                 if component.get('dtstart') :
+                    event.title = str(component.get('summary'))
+                    event.location = str(component.get('location'))
                     component_dt = component.get('dtstart').dt
-                    if  type(component_dt) is datetime.datetime and component_dt.replace(tzinfo=utc) >= min_date_with_time:
-                        event.start = component.get('dtstart').dt
-                        event.title = str(component.get('summary'))
-                        event.location = str(component.get('location'))
-                        event.type = "Normal" # events with date & time like courses
-                        if type(component.get('dtend')) != type(None):
-                            event.end = component.get('dtend').dt
-                        events.append(event)  
 
+                    # events with date & time like courses
+                    if  type(component_dt) is datetime.datetime and component_dt.replace(tzinfo=utc) >= min_datetime:
+                        event.type = "Normal" 
+                        event.start = component.get('dtstart').dt.replace(tzinfo=utc)
+
+                        if type(component.get('dtend')) != type(None):
+                            event.end = component.get('dtend').dt.replace(tzinfo=utc)
+
+                        exdates = component.get('exdate')
+                        if component.get('rrule'):
+                            reoccur = component.get('rrule').to_ical().decode('utf-8')
+                            for dstart, dend in zip(get_recurrent_datetimes(reoccur, event.start, exdates, utc),get_recurrent_datetimes(reoccur, event.end, exdates, utc)):
+                                event.start=dstart
+                                event.end=dend
+                                events.append(event)
+                                
+                                for event in events:
+                                    if event.start.month==10 and event.start.year== 2020:
+                                        print(event)
+                        else:
+                            events.append(event) 
+
+                    # events without time like holidays
                     elif type(component_dt) is datetime.date and component_dt >= min_date:
+                        event.type = "Special" 
+                        event.start = component.get('dtstart').dt
+                        event.start = datetime.datetime.combine(event.start, datetime.datetime.min.time()) #for sorting we will convert it to datetime
+                        event.start = event.start.replace(tzinfo=utc)
                         if type(component.get('dtend')) != type(None):
                             event.end = component.get('dtend').dt
+                        events.append(event) 
+    print(len(events))
 
-                        #for sorting (need to be datetime)
-                        event.start = component.get('dtstart').dt
-                        event.start = datetime.datetime.combine(event.start,datetime.datetime.min.time())
-                        event.start = utc.localize(event.start)
-
-                        event.title = str(component.get('summary'))
-                        event.location = str(component.get('location'))
-                        event.type = "Special" # events without time like holidays
-                        events.append(event)
-
+    for event in events:
+        if event.start.month==10 and event.start.year== 2020:
+            print(event)
     data_calendar = DataCalendar(events, constants.FIRST_WEEKDAY)
     return data_calendar
 
@@ -102,3 +123,5 @@ def _load_calendar(master):
                 print("----------- FAILED TO READ THE CALENDAR-------")
 
     return cal
+
+

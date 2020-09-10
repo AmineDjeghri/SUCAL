@@ -26,11 +26,3 @@ def preprocess_year_and_month(year,month):
     month_name= calendar.month_name[month]
 
     return year, month, month_name
-
-def check_month_dict(month_events, day):
-    """ create a dictionnary key for the month and the day if they do not already exist """
-    if str(str(day.month)) not in month_events:
-        month_events[str(day.month)] = dict()
-    if str(day.day) not in month_events[str(day.month)]:
-        month_events[str(day.month)][str(day.day)]=list()
-    return month_events
