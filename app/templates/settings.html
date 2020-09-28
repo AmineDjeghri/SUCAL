@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">
+  Welcome, {{ name }}! </h1>
+  <p>My courses:</p>
+  <ul>
+  {% for course in my_courses: %}
+  <li>{{course}}</li>
+  {% endfor %}
+</ul>
+
+  <p>All courses:</p>
+  <ul>
+  {% for master, courses in all_courses.items(): %}
+  <li>
+    <p>{{master}}</p>
+    <ul >
+      {% for course in courses: %}
+      <a href="#" data-toggle="dropdown" class="dropdown-toggle">{{course.abbr}}<b class="caret"></b></a>
+      <li class="dropdown-menu">  
+        <div class="checkbox">
+          <label>
+              <input type="checkbox">Cours
+          </label>
+        </div>
+          <p>TD/TME</p>
+          <ul>
+            {% for grp in course.groups: %}
+            <li>  
+              <div class="checkbox">
+                <label>
+                    <input type="checkbox" >Group {{grp}}
+                </label>
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+      </li>
+      {% endfor %}
+    </ul>
+  </li>
+  {% endfor %}
+  </ul>
+
+{% endblock %}

@@ -2,6 +2,11 @@
 
 {% block content %}
 
+<div class="alert alert-primary" role="alert">
+  <h6>Update 0.8</h6>
+  <p>- You can now log in your account and choose your courses to have a personalized calendar !</p>
+</div>
+
 <ul>
   {%  for master in masters %}
     <li> <a  href="{{ url_for('main.show_calendar',masters=master) }}" > 

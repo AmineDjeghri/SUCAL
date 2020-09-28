@@ -33,6 +33,9 @@ Inside the SUCAL folder, open a terminal and enter the following commands:
 You need to run these commands everytime you want to run the application:
 - `pipenv shell` to activate your project environement
 - `flask run` tu start the application
+- (optional): each time modifying the database requires to do:
+- `flask db migrate -m "Updated the database structure"`
+- `flask db upgrade`
   
 #### configure database for the first time:
 - Install Postgresql 12

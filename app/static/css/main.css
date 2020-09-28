@@ -223,6 +223,14 @@ ul.tasks {
     background-color: rgba(255,255,255,0.2) !important;
 }
 
+/* home */
+.home p, .home h3{
+  color: var(--text-color);
+}
+/* settings */
+.settings p, .settings h3{
+  color: var(--text-color);
+}
 
 @media screen and (max-width:675px) {
     .day {

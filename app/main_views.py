@@ -1,8 +1,10 @@
-from flask import Blueprint, render_template, current_app, request, abort
+from flask import Blueprint, render_template, current_app, request, abort, redirect, url_for
 from . import db
 from flask_login import login_required, current_user
 import os
 import sys
+import yaml
+import json
 import time
 import requests
 import yaml
@@ -26,16 +28,35 @@ def index():
     return render_template('index.html',masters=masters)
 
 
-@main.route('/profile')
+# settings
+@main.route('/settings')
 @login_required
-def profile():
-    return render_template('profile.html', name=current_user.name)
+def settings():
+    name=current_user.name
+    my_courses=['a','b','c','d']
+    all_courses=['é','eeb','ccc','zdd']
+    try:
+        with open(constants.DIR_DATA + "courses.json", encoding='utf-8') as f:
+            data = json.load(f)
 
-@main.route('/search')
-def search():
-    return render_template('search.html', results="Not Implemented yet")
+    except:
+        abort(404)
+    return render_template('settings.html', name=name, my_courses=my_courses, all_courses=data)
+
+@main.route('/settings', methods=['POST'])
+@login_required
+def settings_post():
+
+    return redirect(url_for('main.settings'))
+
+# home
+@main.route('/home')
+@login_required
+def home():
+    return render_template('home.html', name=current_user.name)
 
 
+# show calendar
 @main.route('/calendar/<masters>')
 def show_calendar(masters):
     masters = list(set(masters.split("+")))

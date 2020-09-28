@@ -1,0 +1,31 @@
+{
+    "M1_DAC":[
+        {
+            "id":"MUI1",
+            "abbr":"LRC",
+            "name":"Logique et Représentations des Connaissances",
+            "groups":[1,2,3]
+        },
+        {
+            "id":"MUI2",
+            "abbr":"MLBDA",
+            "name":"Modèles et Langages Bases de Données Avancées",
+            "groups":[1,2,3,4,5]
+        }
+    ],
+    "M1_IMA":[
+        {
+            "id":"MUI3",
+            "abbr":"MAPSI",
+            "name":"Modèles et algorithmes probabilistes et statistiques pour l'informatiqu",
+            "groups":[1,2]
+        },
+        {
+            "id":"MUI4",
+            "abbr":"BIMA",
+            "name":"Bases du traitement d'images",
+            "groups":[1,2,3,4]
+        }
+    ]
+
+}
