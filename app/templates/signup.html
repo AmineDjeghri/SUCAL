@@ -2,6 +2,15 @@
 
 {% block content %}
     <div class="container bg-primary">
+         {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}" role="alert"> {{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+    <div class="container bg-primary">
         <form role="form" method="POST" action="/signup">
         <fieldset>							
             <p class="text-uppercase pull-center"> SIGN UP.</p>	
