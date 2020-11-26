@@ -30,7 +30,7 @@
                 </div>
 
                 <div>
-                    <input type="submit" class="btn btn-md btn-primary" value="Sign In">
+                    <input id="sign in" type="submit" class="btn btn-md btn-primary" value="Sign In">
                 </div>
                         
             </fieldset>
@@ -40,5 +40,6 @@
                 <a  href="{{ url_for('auth.signup') }}" >Create account </a>
             </div>
     </div>
+    <script type="text/javascript" src="{{url_for('static',filename='js/login.js')}}"></script>
 
 {% endblock %}
