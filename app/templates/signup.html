@@ -16,7 +16,7 @@
             <p class="text-uppercase pull-center"> SIGN UP.</p>	
                 <div class="form-group">
                 <input type="text" name="name" id="name" class="form-control input-lg" placeholder="Name">
-            </div>
+                </div>
             <div class="form-group">
                 <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address">
             </div>
@@ -26,15 +26,16 @@
             <!--<div class="form-group">
                 <input type="password" name="password2" id="password2" class="form-control input-lg" placeholder="Password2">
             </div> -->
-                <div>
-                <input type="submit" class="btn btn-md btn-primary"  value="Sign Up">
+                <div >
+                <input id="sign in" type="submit" class="btn btn-md btn-primary"  value="Sign Up">
                 </div>
         </fieldset>
     </form>
-    <div class="mt-2">
+    <div  class="mt-2">
         <span>Already registred ? </span><a  href="{{ url_for('auth.login') }}" >Login </a>
     </div>
     </div>
-    
+    <script type="text/javascript" src="{{url_for('static',filename='sign.js')}}"></script>
+
 
 {% endblock %}
