@@ -22,7 +22,7 @@ Dark Mode          |  Light Mode
 # Want to contribute ?
 
 #### 1- Install the requirements
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 (If you use pipenv instead of pyenv or conda, you can find the guide [here](https://github.com/AmineDjeghri/SUCAL/tree/master#if-you-use-pyenv))
 
