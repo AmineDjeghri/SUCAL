@@ -21,24 +21,31 @@ Dark Mode          |  Light Mode
 
 # Want to contribute ?
 
-# Installation
-#### I use pipenv
-Inside the SUCAL folder, open a terminal and enter the following commands:
-- `pip install pipenv`
-- `pipenv shell` create a pipenv environement 
-- `pipenv install` install all required modules
-- Change the name of the **.env.sample** file to **.env**  
+#### 1- Install the requirements
+pip install -r requirements.txt
 
-#### Running the project
-You need to run these commands everytime you want to run the application:
-- `pipenv shell` to activate your project environement
-- `flask run` tu start the application
-  
-#### configure database for the first time:
+(If you use pipenv instead of pyenv or conda, you can find the guide [here](https://github.com/AmineDjeghri/SUCAL/tree/master#if-you-use-pyenv))
+
+#### 2- Run the project
+- `flask run` to start the application
+ 
+Now if you enter to the address, you should see the website, but there is
+no database configured yet. Check the next session to configure the database.
+
+#### 3- configure the database for the first time:
 - Install Postgresql 12
-- Create the database with the name sucal
-- In the **.env** file change the *DATABASE_URL* to : **postgresql://postgres:PASSWORD@localhost:5432/sucal** 
+- Open pgAdmin4 (postgres app), it should open a new tab in the browser 
+- Create the database with the name `sucal` (servers -> postgresql -> databases -> right click and create)
+- In the **.env** file change the *DATABASE_URL* to : `postgresql://postgres:PASSWORD@localhost:5432/sucal` 
 - Don't forget to replace PASSWORD with your postgres password
+- Keep pgadmin running in the background
+- Run the _upgrade_ command `flask db upgrade`, if you go to pgadmin in sucal -> schemas -> public -> tables, 
+  you should see the table user
+  
+#### If you want to modify the database models:
+- Each time the database models change repeat the _migrate_ and _upgrade_ commands.
+- Migrate command : `flask db migrate -m "Your comment"`
+- Upgrade command : `flask db upgrade`
 
 ### TO DO:
 - Profile calendars
@@ -51,8 +58,23 @@ You need to run these commands everytime you want to run the application:
 
 ## Hosting:
 - Heroku
-- cron-job.org for 30min schedual pinging 
+- cron-job.org for 30min schedual ping
 
 #### credits:
 - Louis for the idea
 - The logo of the app was created by freepik and modified by me
+
+
+
+#### If you use Pyenv: 
+#### Installation
+Inside the SUCAL folder, open a terminal and enter the following commands:
+- `pip install pipenv`
+- `pipenv shell` create a pipenv environement 
+- `pipenv install` install all required modules
+- Change the name of the **.env.sample** file to **.env**
+
+#### Running the project if you use pipenv
+You need to run these commands everytime you want to run the application:
+- `pipenv shell` to activate your project environement
+- `flask run` to start the application
