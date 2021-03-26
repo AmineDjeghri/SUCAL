@@ -29,7 +29,7 @@ pip install -r requirements.txt
 #### 2- Run the project
 - `flask run` to start the application
  
-Now if you enter to the address, you should see the website, but there is
+Now if you go to the address, you should see the website, but there is
 no database configured yet. Check the next session to configure the database.
 
 #### 3- configure the database for the first time:
