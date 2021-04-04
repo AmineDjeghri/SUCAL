@@ -1,3 +1,5 @@
+<!-- The base template that contains the nav bar and the container page -->
+
 <!DOCTYPE html>
 <html>
 
@@ -34,7 +36,7 @@
 
 <body>
     <script>
-        const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+        const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : 'dark';
         if (currentTheme) {
             document.documentElement.setAttribute('data-theme', currentTheme);
         }
@@ -44,7 +46,7 @@
         <a href="https://github.com/AmineDjeghri/SUCAL">(Beta 0.7 github)</a> 
         <div class="theme-switch-wrapper">
             <label class="theme-switch" for="checkbox">
-                <input type="checkbox" id="checkbox" />
+                <input type="checkbox" id="checkbox"/>
                 <div class="slider round"></div>
           </label>
           <span>Enable Dark Mode</span>

@@ -1,8 +1,14 @@
+<!-- The index root html file-->
+
+
 {% extends "base.html" %}
 
 {% block content %}
 
 <ul>
+  <li>
+      <a style="color: #30e24b; text-decoration: underline; " href="https://www-master.ufr-info-p6.jussieu.fr/2020/ecrire/prive.php?page=mesNotes" > Consulter vos notes DBUFR &#128534 </a>
+  </li>
   {%  for master in masters %}
     <li> <a  href="{{ url_for('main.show_calendar',masters=master) }}" > 
       {% if master in ["M1" , "M2"]  %}
@@ -14,7 +20,5 @@
      </li>
   {% endfor %}
   </ul>
-
-
 
 {% endblock %}
