@@ -7,10 +7,10 @@
 </p>
 
 # Sceenshots
-Dark Mode          |  Light Mode
-:-------------------------:|:-------------------------:
-<img src="images/sucal2.png">  |  <img src="images/sucal4.png">
-<img src="images/sucal1.png">  |  <img src="images/sucal3.png">
+|Dark Mode          |  Light Mode|
+|:-------------------------:|:-------------------------:|
+|<img src="images/sucal2.png">  |  <img src="images/sucal4.png">|
+|<img src="images/sucal1.png">  |  <img src="images/sucal3.png">|
 
 # Features
 - A fast website that loads your calendar in less than a second compared to more than 25sec on the official website
@@ -21,12 +21,13 @@ Dark Mode          |  Light Mode
 
 # Want to contribute ?
 
-#### 1- Install the requirements
+#### 1- Checkout to develop branch and install python 3.7 and the requirements
 `pip install -r requirements.txt`
 
 (If you use pipenv instead of pyenv or conda, you can find the guide [here](https://github.com/AmineDjeghri/SUCAL/tree/master#if-you-use-pyenv))
 
 #### 2- Run the project
+- copy `.env.sample` to `.env` (this file contains the settings of the app)
 - `flask run` to start the application
  
 Now if you go to the address, you should see the website, but there is

@@ -1,3 +1,4 @@
+# python 3.7
 alembic==1.5.8
 apipkg==1.5
 arrow==0.14.7
