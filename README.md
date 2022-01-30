@@ -28,7 +28,8 @@
 
 #### 2- Run the project
 - copy `.env.sample` to `.env` (this file contains the settings of the app)
-- `flask run` to start the application
+- run `flask run` in the terminal to start the application
+  (for IDE users: you can run the __init__.py)
  
 Now if you go to the address, you should see the website, but there is
 no database configured yet. Check the next session to configure the database.
