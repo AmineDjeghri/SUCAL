@@ -21,7 +21,7 @@
 
 # Want to contribute ?
 
-#### 1- Checkout to develop branch and install python 3.7 and the requirements
+#### 1- Checkout to develop branch and install the requirements (use python 3.7)
 `pip install -r requirements.txt`
 
 (If you use pipenv instead of pyenv or conda, you can find the guide [here](https://github.com/AmineDjeghri/SUCAL/tree/master#if-you-use-pyenv))
