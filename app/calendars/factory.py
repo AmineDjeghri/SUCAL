@@ -97,7 +97,7 @@ def _update_calendar(master, if_older_than=0):
 def _load_calendar(master):
     cal = None
 
-    _update_calendar(master, if_older_than=0)
+    _update_calendar(master, if_older_than=1800)
 
     ics_file = constants.DIR_ICS + master + ".ics"
     with open(ics_file, 'r', encoding=constants.ENCODING) as f:
@@ -109,7 +109,7 @@ def _load_calendar(master):
     if cal is None:
         print("-----> redownloading ", master, ".ics")
         _update_calendar(master)
-        with open(ics_file,'r', encoding=constants.ENCODING) as f:
+        with open(ics_file, 'r', encoding=constants.ENCODING) as f:
             try:
                 cal = Calendar.from_ical(f.read())
                 print("----------- SUCCEEDED TO READ THE CALENDAR----")
