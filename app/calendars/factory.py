@@ -1,4 +1,4 @@
-from icalendar import Calendar,Event
+from icalendar import Calendar, Event
 import datetime
 import pytz
 import yaml
@@ -32,51 +32,53 @@ def create_data_calendar(masters):
     min_datetime = min_datetime.replace(tzinfo=utc)
 
     events = []
-    
-    for master in masters: 
+
+    for master in masters:
         cal = _load_calendar(master)
 
         if cal is not None:
             for component in cal.walk():
                 event = CalendarEvent()
-                if component.get('dtstart') :
+                if component.get('dtstart'):
                     component_dt = component.get('dtstart').dt
 
                     # events with date & time like courses
-                    if  type(component_dt) is datetime.datetime and component_dt.replace(tzinfo=utc) >= min_datetime:
+                    if type(component_dt) is datetime.datetime and component_dt.replace(tzinfo=utc) >= min_datetime:
                         event.start = component.get('dtstart').dt.replace(tzinfo=utc)
-                        if component.get('dtend') :
+                        if component.get('dtend'):
                             event.end = component.get('dtend').dt.replace(tzinfo=utc)
 
                         exdates = component.get('exdate')
                         if component.get('rrule'):
                             reoccur = component.get('rrule').to_ical().decode('utf-8')
-                            for dtstart, dtend in zip(get_recurrent_datetimes(reoccur, event.start, exdates, utc),get_recurrent_datetimes(reoccur, event.end, exdates, utc)):
+                            for dtstart, dtend in zip(get_recurrent_datetimes(reoccur, event.start, exdates, utc),
+                                                      get_recurrent_datetimes(reoccur, event.end, exdates, utc)):
                                 event = CalendarEvent()
-                                event.type = "Normal" 
+                                event.type = "Normal"
                                 event.title = str(component.get('summary'))
                                 event.location = str(component.get('location'))
-                                event.start=dtstart
-                                event.end=dtend
+                                event.start = dtstart
+                                event.end = dtend
                                 events.append(event)
                         else:
-                            event.type = "Normal" 
+                            event.type = "Normal"
                             event.title = str(component.get('summary'))
                             event.location = str(component.get('location'))
-                            events.append(event) 
+                            events.append(event)
 
-                    # events without time like holidays
+                            # events without time like holidays
                     elif type(component_dt) is datetime.date and component_dt >= min_date:
-                        event.type = "Special" 
+                        event.type = "Special"
                         event.start = component.get('dtstart').dt
-                        event.start = datetime.datetime.combine(event.start, datetime.datetime.min.time()) #for sorting we will convert it to datetime
+                        event.start = datetime.datetime.combine(event.start,
+                                                                datetime.datetime.min.time())  # for sorting we will convert it to datetime
                         event.start = event.start.replace(tzinfo=utc)
-                        if component.get('dtend') :
+                        if component.get('dtend'):
                             event.end = component.get('dtend').dt
 
                         event.title = str(component.get('summary'))
                         event.location = str(component.get('location'))
-                        events.append(event) 
+                        events.append(event)
 
     data_calendar = DataCalendar(events, constants.FIRST_WEEKDAY)
     return data_calendar
@@ -88,16 +90,22 @@ def _update_calendar(master, if_older_than=0):
     if master in MASTERS.keys():
         ics_file = constants.DIR_ICS + master + ".ics"
         if not os.path.isfile(ics_file) or os.path.getmtime(ics_file) + if_older_than < time.time():
+            try:
+                print("Found file ", ics_file, " last time downloaded: ",
+                      time.ctime(os.path.getmtime(ics_file)))
+            except FileNotFoundError:
+                print("problem occured in printing the last time download of ics file")
+
             with open(ics_file, "w+", encoding='utf8') as ics_file_:
-                print("download a new file of ", ics_file, " last time downloaded: ", time.ctime(os.path.getmtime(ics_file)),
-                      " today: ", time.ctime(time.time()))
-                ics_file_.write(requests.get(constants.CALDAV_URL + MASTERS[master] + "/" + master, auth=(constants.CALDAV_USERNAME, constants.CALDAV_PASSWORD)).text)
+                print("download a new file of ", ics_file, " today: ", time.ctime(time.time()))
+                ics_file_.write(requests.get(constants.CALDAV_URL + MASTERS[master] + "/" + master,
+                                             auth=(constants.CALDAV_USERNAME, constants.CALDAV_PASSWORD)).text)
 
 
 def _load_calendar(master):
     cal = None
 
-    _update_calendar(master, if_older_than=1800)
+    _update_calendar(master, if_older_than=000)
 
     ics_file = constants.DIR_ICS + master + ".ics"
     with open(ics_file, 'r', encoding=constants.ENCODING) as f:
@@ -118,5 +126,3 @@ def _load_calendar(master):
                 print("----------- FAILED TO READ THE CALENDAR-------")
 
     return cal
-
-
