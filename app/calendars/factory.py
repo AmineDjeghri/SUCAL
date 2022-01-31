@@ -87,7 +87,6 @@ def _update_calendar(master, if_older_than=0):
         MASTERS = yaml.safe_load(yml_file)
     if master in MASTERS.keys():
         ics_file = constants.DIR_ICS + master + ".ics"
-
         if not os.path.isfile(ics_file) or os.path.getmtime(ics_file) + if_older_than < time.time():
             with open(ics_file, "w+", encoding='utf8') as ics_file_:
                 print("download a new file of ", ics_file, " last time downloaded: ", time.ctime(os.path.getmtime(ics_file)),
@@ -96,12 +95,12 @@ def _update_calendar(master, if_older_than=0):
 
 
 def _load_calendar(master):
-    cal= None
+    cal = None
 
-    _update_calendar(master, if_older_than=1800)
+    _update_calendar(master, if_older_than=0)
 
     ics_file = constants.DIR_ICS + master + ".ics"
-    with open(ics_file,'r', encoding=constants.ENCODING) as f:
+    with open(ics_file, 'r', encoding=constants.ENCODING) as f:
         try:
             cal = Calendar.from_ical(f.read())
         except:
