@@ -90,8 +90,8 @@ def _update_calendar(master, if_older_than=0):
 
         if not os.path.isfile(ics_file) or os.path.getmtime(ics_file) + if_older_than < time.time():
             with open(ics_file, "w+", encoding='utf8') as ics_file_:
-                print("download a new file of ", ics_file, " last time downloaded ", time.ctime(os.path.getmtime(ics_file)),
-                      " today ", time.ctime(time.time()))
+                print("download a new file of ", ics_file, " last time downloaded: ", time.ctime(os.path.getmtime(ics_file)),
+                      " today: ", time.ctime(time.time()))
                 ics_file_.write(requests.get(constants.CALDAV_URL + MASTERS[master] + "/" + master, auth=(constants.CALDAV_USERNAME, constants.CALDAV_PASSWORD)).text)
 
 
