@@ -163,10 +163,10 @@ body{
     color: var(--text-color);
     background-color: var(--current);
     padding: 3px;
-    width: 26px;
+    width: 40px;
     height: 26px;
     text-align: center;
-    display: inline-block;
+    display: inline;
     font-weight: bold;
     border-radius: 13px;
 }

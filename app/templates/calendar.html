@@ -17,7 +17,8 @@
                 title="Next month" />
 
             {% if month != current_month or year != current_year %}
-            <input type="button" class="btn btn-primary btn-sm" onclick="window.location = window.location.pathname" value="back to current" />
+            <input type="button" class="btn btn-primary btn-sm" onclick="window.location = window.location.pathname" value="back to current"
+            title="current month"/>
             {% endif %}
         </div>
 
@@ -37,7 +38,8 @@
                     {% endif %}>
 
                     {% if day.day == current_day and day.month == current_month and day.year == current_year %}
-                            <span class=" daynumber-current" >
+                            <span class="daynumber-current" id="current-day">
+                            today
                     {% else %}
                             <span class="daynumber">
                     {% endif %}
@@ -93,5 +95,12 @@
 
     </div>
 </div>
+
+<script>
+document.getElementById('current-day').scrollIntoView({
+  behavior: 'smooth'
+});
+</script>
+
 {% endblock %}
 

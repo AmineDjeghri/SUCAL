@@ -36,7 +36,7 @@ class GregorianCalendar:
 
     @staticmethod
     def month_weekdays(year: int, month: int) -> Iterable[date]:
-        md=GregorianCalendar.month_days(year,month)
+        md = GregorianCalendar.month_days(year, month)
 
         md_without_weekends=[day for day in md if day.weekday()<5]
         return md_without_weekends
