@@ -58,7 +58,7 @@ def show_calendar(masters):
     data_calendar = factory.create_data_calendar(masters)
     month_events = data_calendar.get_month_data(year, month)
 
-    return  render_template(
+    return render_template(
             "calendar.html",
             year=year,
             month=month,

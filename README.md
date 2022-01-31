@@ -29,7 +29,10 @@
 #### 2- Run the project
 - copy `.env.sample` to `.env` (this file contains the settings of the app)
 - run `flask run` in the terminal to start the application
-  (for IDE users: you can run the __init__.py)
+##### 2.2 - Pycharm
+- for Pycharm users: you can run the __init__.py in debug mode after enabling Live Edit
+- take a look at https://www.jetbrains.com/help/pycharm/live-editing.html#ws_live_edit_activate_procedure)
+- In edit configurations of the debug session : check FLASK_DEBUG
  
 Now if you go to the address, you should see the website, but there is
 no database configured yet. Check the next session to configure the database.
