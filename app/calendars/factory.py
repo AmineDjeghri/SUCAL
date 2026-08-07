@@ -116,13 +116,15 @@ def _load_calendar(master):
 
     if cal is None:
         print("-----> redownloading ", master, ".ics")
+        if os.path.isfile(ics_file):
+            os.remove(ics_file)
         _update_calendar(master)
-        with open(ics_file, 'r', encoding=constants.ENCODING) as f:
-            try:
+        try:
+            with open(ics_file, 'r', encoding=constants.ENCODING) as f:
                 cal = Calendar.from_ical(f.read())
                 print("----------- SUCCEEDED TO READ THE CALENDAR----")
-            except:
-                traceback.print_exc()
-                print("----------- FAILED TO READ THE CALENDAR-------")
+        except:
+            traceback.print_exc()
+            print("----------- FAILED TO READ THE CALENDAR-------")
 
     return cal
