@@ -1,7 +1,11 @@
 # SUCAL : Sorbonne Université calendar
+
+> **⚠️ Archived:**
+> 
+>  This repository is no longer maintained and has been archived. The website may no longer be available or up to date. Feel free to fork the project if you'd like to continue development.
+
 ### Le lien: [sucal.aminedjeghri.tk](http://sucal.aminedjeghri.tk/)
 
-[![Build Status](https://travis-ci.com/AmineDjeghri/SUCAL.svg?branch=master)](https://travis-ci.com/AmineDjeghri/SUCAL)
 <p align="center">
   <img src="images/sucal_logo_500.png">
 </p>
@@ -12,6 +16,12 @@
 |<img src="images/sucal2.png">  |  <img src="images/sucal4.png">|
 |<img src="images/sucal1.png">  |  <img src="images/sucal3.png">|
 
+---
+
+> **⚠️ Archived:**
+> 
+>  This repository is no longer maintained and has been archived. The website may no longer be available or up to date. Feel free to fork the project if you'd like to continue development.
+---
 # Features
 - A fast website that loads your calendar in less than a second compared to more than 25sec on the official website
 - A friendly mobile website
